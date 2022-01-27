@@ -1,4 +1,4 @@
-import {BiMessageSquareDetail} from 'react-icons/bi'
+import {CgWebsite} from 'react-icons/cg'
 import {Movie} from '../interfaces'
 import classes from './card.module.css'
 
@@ -10,9 +10,9 @@ const Card:React.FC<CardProps> = ({data}) => {
     return (
         <div className={classes.card}>
             <div className={classes.image}>
-                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${data.poster_path}`}/>
+                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${data.poster_path}`} alt={data.title}/>
                 <div className={classes.detailIcon}>
-                    <BiMessageSquareDetail/>
+                    <CgWebsite/>
                 </div>
             </div>
             <div className={classes.content}>

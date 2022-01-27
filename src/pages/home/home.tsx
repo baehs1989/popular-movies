@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {getPopularMovies} from '../../test_api'
 import {Movie} from '../../interfaces'
 import Card from '../../components/card';
+import Details from '../details/details';
 
 function Home() {
     const [movies, setMovies] = useState<Movie[]>([])
@@ -17,6 +18,7 @@ function Home() {
     
     return ( 
         <div>
+            <Details/>
             <div style={{
                 display:'flex',
                 flexWrap:'wrap'
@@ -27,7 +29,6 @@ function Home() {
                     })
                 }
             </div>
-
         </div>
      );
 }
