@@ -60,7 +60,11 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
           </div>
           <div className={classes.content}>
             <div className={classes.title}>
-              <h1>{movie?.original_title}</h1>
+              <h1>{movie?.title}</h1>
+              {
+                movie?.title !== movie?.original_title &&
+                <h1>{movie?.original_title}</h1>
+              }
             </div>
 
             <div className={classes.subtitle}>
