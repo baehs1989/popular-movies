@@ -1,0 +1,12 @@
+.wrapper {
+    height: 45vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper p{
+    margin:0;
+    font-size: 20px;
+}
