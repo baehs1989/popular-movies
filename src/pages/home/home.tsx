@@ -8,6 +8,7 @@ function Home() {
 
     const onSelectMovie = (movieId:number) => {
         setSelectedMovie(movieId)
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     return ( 

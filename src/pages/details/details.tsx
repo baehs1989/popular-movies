@@ -22,21 +22,24 @@ interface DetailsProps {
 
 const Details: React.FC<DetailsProps> = ({movieId}) => {
   const [movie, setMovie] = useState<MovieDetails>();
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
+    setLoading(true)
     const initialCall = async () => {
       const movie = await getMovieDetails();
       setMovie(movie);
+      setLoading(false)
     };
     initialCall();
   }, [movieId]);
 
-  if (!movie) {
+  if (loading || !movie) {
     return(
       <div className={classes.placeholder}>
         <Overflow/>
       </div>
     )
-
   }
 
   return (
