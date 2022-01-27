@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { BsDot } from "react-icons/bs";
 
-import { getMovieDetails } from "../../test_api";
-import { MovieDetails } from "../../interfaces";
+// import { getMovieDetails } from "../../test_api";
+import * as apiProvider from '../../apiProvider/api'
+import { Movie, MovieDetails } from "../../interfaces";
 import classes from "./details.module.css";
 import Overflow from "../../components/loader/overflow";
 
@@ -27,7 +28,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
   useEffect(() => {
     setLoading(true)
     const initialCall = async () => {
-      const movie = await getMovieDetails();
+      const movie = await apiProvider.getMovieDetails(movieId)
       setMovie(movie);
       setLoading(false)
     };

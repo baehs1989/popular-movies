@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 
 import Card from "./card"
 import { Movie } from "../interfaces"
-import { getPopularMovies } from '../test_api';
+// import { getPopularMovies } from '../test_api';
+import * as apiProvider from '../apiProvider/api'
 import classes from './card-list.module.css';
 import BallLoader from './loader/bar'
 import Overflow from './loader/overflow'
@@ -20,7 +21,7 @@ const CardList:React.FC<CardListProps> = ({onSelectMovie}) => {
 
     useEffect(()=>{
         const initialCall = async () => {
-            let movies = await getPopularMovies(currentPage)
+            let movies = await apiProvider.getPopularMovies(currentPage)
             setMovies(movies.results)
             setCurrentPage(movies.page)
             setLastPage(movies.total_pages)
@@ -31,7 +32,7 @@ const CardList:React.FC<CardListProps> = ({onSelectMovie}) => {
     },[])
 
     const loadMore = async () => {
-        let new_movies = await getPopularMovies(currentPage+1)
+        let new_movies = await apiProvider.getPopularMovies(currentPage+1)
         setMovies([...movies, ...new_movies.results])
         setCurrentPage(new_movies.page)
         setLoadingMore(false)
