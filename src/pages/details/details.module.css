@@ -6,6 +6,11 @@
     margin:0;
 }
 
+.placeholder{
+    height: 300px;
+    position: relative;
+}
+
 .backdrop{
     background-image: linear-gradient(to right, rgba(5.10%, 8.24%, 9.02%, 1.00) 150px, rgba(5.10%, 8.24%, 9.02%, 0.84) 100%);
     display: flex;

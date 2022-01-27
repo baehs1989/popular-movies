@@ -8,6 +8,7 @@ import { BsDot } from "react-icons/bs";
 import { getMovieDetails } from "../../test_api";
 import { MovieDetails } from "../../interfaces";
 import classes from "./details.module.css";
+import Overflow from "../../components/loader/overflow";
 
 const humanReadableRuntime = (runtime: number) => {
   let h = Math.floor(runtime / 60);
@@ -30,7 +31,12 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
   }, [movieId]);
 
   if (!movie) {
-    return <div>loadign..</div>;
+    return(
+      <div className={classes.placeholder}>
+        <Overflow/>
+      </div>
+    )
+
   }
 
   return (

@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import Card from "./card"
 import { Movie } from "../interfaces"
 import { getPopularMovies } from '../test_api';
-import classes from './card-list.module.css'
+import classes from './card-list.module.css';
+import BallLoader from './loader/bar'
+import Overflow from './loader/overflow'
 
 interface CardListProps {
     onSelectMovie:(movieId:number)=>void
@@ -36,7 +38,7 @@ const CardList:React.FC<CardListProps> = ({onSelectMovie}) => {
     }
 
     if (isLoading){
-        return <div>Loading...</div>
+        return <Overflow/>
     }
 
     return (
@@ -55,7 +57,7 @@ const CardList:React.FC<CardListProps> = ({onSelectMovie}) => {
                 </div>
             }
             {
-                loadingMore && <div>loading...</div>
+                loadingMore && <div className={classes.actions}><BallLoader/></div>
             }
         </>
 
