@@ -7,7 +7,7 @@ import { BsDot } from "react-icons/bs";
 
 // import { getMovieDetails } from "../../test_api";
 import * as apiProvider from '../../apiProvider/api'
-import { Movie, MovieDetails } from "../../interfaces";
+import { MovieDetails } from "../../interfaces";
 import classes from "./details.module.css";
 import Overflow from "../../components/loader/overflow";
 

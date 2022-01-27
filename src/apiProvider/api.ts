@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiKey = '3f08daec7c10788a60573402322fa280'
+const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY
 const baseURL = 'https://api.themoviedb.org'
 
 export const getPopularMovies = async(page=1) => {

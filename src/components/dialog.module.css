@@ -1,0 +1,24 @@
+.button{
+    cursor:pointer;
+    border:none;
+    padding: 10px;
+    background-color: white;
+}
+
+.button svg{
+    height: 20px;
+    width: 20px;
+}
+
+.button:hover{
+    opacity:0.5;
+}
+
+.dialogactions{
+    padding: 0px !important
+}
+
+.dialogcontent{
+    padding: 10px !important;
+    padding-top:0px !important;
+}
