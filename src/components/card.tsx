@@ -8,8 +8,6 @@ interface CardProps {
 }
 
 const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
-
-    console.log(data)
     return (
         <div className={classes.card} onClick={()=>onSelectMovie(data.id)}>
             <div className={classes.image}>
