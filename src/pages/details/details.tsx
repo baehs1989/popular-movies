@@ -10,13 +10,16 @@ import { MovieDetails } from "../../interfaces";
 import classes from "./details.module.css";
 
 const humanReadableRuntime = (runtime: number) => {
-  console.log(runtime);
   let h = Math.floor(runtime / 60);
   let m = runtime % 60;
   return `${h}h ${m}m`;
 };
 
-const Details: React.FC = () => {
+interface DetailsProps {
+  movieId:number
+}
+
+const Details: React.FC<DetailsProps> = ({movieId}) => {
   const [movie, setMovie] = useState<MovieDetails>();
   useEffect(() => {
     const initialCall = async () => {
@@ -24,9 +27,7 @@ const Details: React.FC = () => {
       setMovie(movie);
     };
     initialCall();
-  }, []);
-
-  console.log(movie);
+  }, [movieId]);
 
   if (!movie) {
     return <div>loadign..</div>;

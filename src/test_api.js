@@ -699,8 +699,10 @@ const pages = [page1, page2];
 export const getPopularMovies = (page = 1) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(pages[page]);
-    }, 1000);
+      let result = JSON.parse(JSON.stringify(pages[0]))
+      result.page = page
+      resolve(result);
+    }, 3000);
   });
 };
 
@@ -788,6 +790,6 @@ export const getMovieDetails = (id = 0) => {
         vote_average: 8.5,
         vote_count: 6111,
       });
-    }, 1000);
+    }, 3000);
   });
 };

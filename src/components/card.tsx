@@ -3,12 +3,13 @@ import {Movie} from '../interfaces'
 import classes from './card.module.css'
 
 interface CardProps {
-    data:Movie
+    data:Movie;
+    onSelectMovie:(movieId:number)=>void
 }
 
-const Card:React.FC<CardProps> = ({data}) => {
+const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
     return (
-        <div className={classes.card}>
+        <div className={classes.card} onClick={()=>onSelectMovie(data.id)}>
             <div className={classes.image}>
                 <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${data.poster_path}`} alt={data.title}/>
                 <div className={classes.detailIcon}>
