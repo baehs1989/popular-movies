@@ -5,7 +5,9 @@ const Header = () => {
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
   
   const clickHome = () => {
-    window.location.reload()
+    // window.scrollTo({top: 0, behavior: 'smooth'});
+    // window.location.reload()
+    window.location.href = '/'
   }
 
   useEffect(() => {

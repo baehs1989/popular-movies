@@ -23,7 +23,7 @@
 
 .card h2{
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -53,9 +53,17 @@
     padding: 10px;
 }
 
+.content > div{
+    margin-bottom : 5px;
+}
+
 .release_data{
     color:grey;
     font-weight:bold;
+}
+
+.genres{
+    font-size: 15px;
 }
 
 .popularity{

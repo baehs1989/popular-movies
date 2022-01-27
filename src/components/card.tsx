@@ -8,6 +8,8 @@ interface CardProps {
 }
 
 const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
+
+    console.log(data)
     return (
         <div className={classes.card} onClick={()=>onSelectMovie(data.id)}>
             <div className={classes.image}>
@@ -19,6 +21,7 @@ const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
             <div className={classes.content}>
                 <div className={classes.title}><h2>{data.title}</h2></div>
                 <div className={classes.release_data}>{data.release_date}</div>
+                <div className={classes.genres}>{data.genre_ids.join(', ')}</div>
                 <div className={classes.popularity}>{data.popularity} pts</div>
             </div>
         </div>

@@ -43,8 +43,8 @@ const CardList:React.FC<CardListProps> = ({onSelectMovie}) => {
     }
 
     return (
-        <>
-            <div className={classes.wrapper}>
+        <div className={classes.wrapper}>
+            <div className={classes.card_list}>
                 {
                     movies.map(movie=>{
                         return <Card key={movie.id} data={movie} onSelectMovie={onSelectMovie}/>
@@ -60,7 +60,7 @@ const CardList:React.FC<CardListProps> = ({onSelectMovie}) => {
             {
                 loadingMore && <div className={classes.actions}><BallLoader/></div>
             }
-        </>
+        </div>
 
     )
 }
