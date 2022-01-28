@@ -3,7 +3,7 @@ import {useState} from 'react'
 import Details from '../details/details';
 import CardList from '../../components/card-list';
 import CustomDialog from '../../components/dialog';
-import * as apiProvider from '../../apiProvider/api'
+// import * as apiProvider from '../../apiProvider/api'
 import { getPopularMovies } from "../../test_api";
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
         setSelectedMovie(movieId)
     }
 
-    return ( 
+    return (
         <div>
             {
                 selectedMovie && 
@@ -21,7 +21,7 @@ function Home() {
                     <Details movieId={selectedMovie}/>
                 </CustomDialog>
             }
-            <CardList onSelectItem={onSelectMovie} onLoadData={apiProvider.getPopularMovies}/>
+            <CardList onSelectItem={onSelectMovie} onLoadData={getPopularMovies}/>
         </div>
      );
 }

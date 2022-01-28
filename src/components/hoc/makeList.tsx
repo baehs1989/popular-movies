@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Movie } from "../../interfaces";
-import { getPopularMovies } from "../../test_api";
 import BallLoader from "../loader/bar";
 import Overflow from "../loader/overflow";
 import classes from "./makeList.module.css";

@@ -1,9 +1,17 @@
 import { useEffect, useRef } from "react";
+import Badge from '@mui/material/Badge';
+import {AiOutlineLike} from 'react-icons/ai'
+
+import { useTypedSelector } from "../hook/useTypeSelector"
 import classes from "./header.module.css";
+
 
 const Header = () => {
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
-  
+  const favorite = useTypedSelector(({movies:{list}})=>{
+    return list
+  })
+
   const clickHome = () => {
     // window.scrollTo({top: 0, behavior: 'smooth'});
     // window.location.reload()
@@ -43,9 +51,14 @@ const Header = () => {
 
   return (
     <header ref={ref} className={classes.page_header}>
-      <nav>
+      <nav className={classes.nav}>
         <div className={classes.trigger_menu}>
           <span className={classes.logo} onClick={clickHome}>The Moive DB</span>
+        </div>
+        <div className={classes.favoritebutton}>
+          <Badge badgeContent={favorite.length} color={"secondary"}>
+            <AiOutlineLike/>
+          </Badge>
         </div>
       </nav>
     </header>

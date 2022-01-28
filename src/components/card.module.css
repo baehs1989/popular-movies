@@ -1,72 +1,93 @@
-.card{
-    overflow: hidden;
-    background-color: white;
-    border-radius: 10px;
-    position: relative;
-    display: flex;
-    flex: 1 1 0;
-    min-width:200px;
-    max-width:220px;
-    flex-direction: column;
-    margin: 10px;
-    cursor:pointer;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+.card {
+  overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 200px;
+  max-width: 220px;
+  flex-direction: column;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
-.card:hover img{
-    opacity: 0.3;
+.card:hover img {
+  opacity: 0.3;
 }
 
-.card:hover .detailIcon{
-    display: block;
+.card:hover .detailIcon {
+  display: block;
 }
 
-.card h2{
-    margin: 0;
-    font-size: 22px;
-    font-weight: bold;
+.card h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.image{
-    position: relative;
+.image {
+  position: relative;
 }
 
-.detailIcon{
-    display:none;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);    
+.detailIcon {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.detailIcon svg{
-    height: 25px;
-    width: 25px;
-    /* color:red; */
+.detailIcon svg {
+  height: 25px;
+  width: 25px;
+  /* color:red; */
 }
 
-.image img{
-    width: 100%;
+.image img {
+  width: 100%;
 }
 
-.content{
-    padding: 10px;
+.content {
+  padding: 10px;
 }
 
-.content > div{
-    margin-bottom : 5px;
+.content > div {
+  margin-bottom: 5px;
 }
 
-.release_data{
-    color:grey;
-    font-weight:bold;
+.release_data {
+  color: grey;
+  font-weight: bold;
 }
 
-.genres{
-    font-size: 15px;
+.genres {
+  font-size: 15px;
 }
 
-.popularity{
-    margin-top:5px;
-    color:green;
+.popularity {
+  margin-top: 5px;
+  color: green;
+}
+
+.favorite {
+  position: absolute;
+  right: 0;
+  color: white;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.favorite svg {
+  color: red;
+  font-size: 35px;
+}
+
+.force_focusout .detailIcon{
+    display:none !important
+}
+
+.force_focusout .image img{
+    opacity: 1;
 }

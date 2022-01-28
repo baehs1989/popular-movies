@@ -1,15 +1,16 @@
-// https://api.themoviedb.org/3/movie/754934?api_key=3f08daec7c10788a60573402322fa280
-// fetching genres https://api.themoviedb.org/3/genre/movie/list?api_key=3f08daec7c10788a60573402322fa280
-//https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg
 import { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { BsDot } from "react-icons/bs";
+import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
 
 // import { getMovieDetails } from "../../test_api";
 import * as apiProvider from '../../apiProvider/api'
 import { MovieDetails } from "../../interfaces";
 import classes from "./details.module.css";
 import Overflow from "../../components/loader/overflow";
+import { useTypedSelector } from "../../hook/useTypeSelector"
+import {useActions} from '../../hook/useAction'
+
 
 const humanReadableRuntime = (runtime: number) => {
   let h = Math.floor(runtime / 60);
@@ -24,6 +25,11 @@ interface DetailsProps {
 const Details: React.FC<DetailsProps> = ({movieId}) => {
   const [movie, setMovie] = useState<MovieDetails>();
   const [loading, setLoading] = useState(true)
+
+  const favorite = useTypedSelector(({movies:{list}})=>{
+    return list
+  })
+  const {addMovie, deleteMovie} = useActions()
 
   useEffect(() => {
     setLoading(true)
@@ -43,6 +49,15 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
     )
   }
 
+  const onClickLikeButton = (event:React.MouseEvent<HTMLDivElement>) =>{
+    event.stopPropagation()
+    if (favorite.includes(movieId)){
+      deleteMovie(movieId)
+    }else{
+        addMovie(JSON.parse(JSON.stringify(movie)))
+    }
+  }
+
   return (
     <div
       style={{
@@ -50,8 +65,18 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
       }}
       className={classes.outer_wrapper}
     >
+      
       <div className={classes.backdrop}>
+      <div className={classes.favorite} onClick={onClickLikeButton}>
+                {
+                    favorite.includes(movieId)?
+                    <AiFillHeart/>
+                    :
+                    <AiOutlineHeart/>
+                }
+          </div>
         <div className={classes.inner_wrapper}>
+          
           <div className={classes.image}>
             <img
               src={`https://www.themoviedb.org/t/p/w300_and_h450_face${movie?.poster_path}`}
@@ -59,6 +84,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
             />
           </div>
           <div className={classes.content}>
+            
             <div className={classes.title}>
               <h1>{movie?.title}</h1>
               {
