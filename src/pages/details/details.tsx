@@ -54,7 +54,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
     if (favorite.includes(movieId)){
       deleteMovie(movieId)
     }else{
-        addMovie(JSON.parse(JSON.stringify(movie)))
+      addMovie(JSON.parse(JSON.stringify(movie)))
     }
   }
 

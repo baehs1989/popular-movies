@@ -4,8 +4,8 @@ import Details from '../details/details';
 import CardList from '../../components/card-list';
 import makeList from '../../components/hoc/makeList';
 import CustomDialog from '../../components/dialog';
-// import * as apiProvider from '../../apiProvider/api'
-import { getPopularMovies } from "../../test_api";
+import * as apiProvider from '../../apiProvider/api'
+// import { getPopularMovies } from "../../test_api";
 
 let HOCCardList = makeList(CardList)
 
@@ -24,7 +24,7 @@ function Home() {
                     <Details movieId={selectedMovie}/>
                 </CustomDialog>
             }
-            <HOCCardList onSelectItem={onSelectMovie} onLoadData={getPopularMovies}/>
+            <HOCCardList onSelectItem={onSelectMovie} onLoadData={apiProvider.getPopularMovies}/>
         </div>
      );
 }

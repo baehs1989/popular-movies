@@ -53,5 +53,11 @@ export const getPopularMovies = async (page = 1) => {
 export const getMovieDetails = async (id: number) => {
   let url = baseURL + `/3/movie/${id}?api_key=${apiKey}`;
   let res = await axios.get(url);
+
+  if (!genres_map) {
+    genres_map = await getGenres();
+  }
+  //in order to sync the data
+  res.data.genre_ids = res.data.genres.map((g : {id:number, name:string})=>g.name)
   return res.data;
 };

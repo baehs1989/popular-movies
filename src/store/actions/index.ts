@@ -15,4 +15,18 @@ export interface ClearMoviesAction {
     type:ActionType.CLEAR_MOVIES
 }
 
-export type Actions = AddMovieAction | DeleteMovieAction | ClearMoviesAction 
+export interface SaveReduxStateAction {
+    type:ActionType.SAVE_REDUX_STATE
+}
+
+export interface RestoreReduxStateAction {
+    type:ActionType.RESTORE_REDUX_STATE,
+    payload:{
+        data:{
+            [key:number]:Movie
+        },
+        list:number[]
+    }
+}
+
+export type Actions = AddMovieAction | DeleteMovieAction | ClearMoviesAction | SaveReduxStateAction | RestoreReduxStateAction
