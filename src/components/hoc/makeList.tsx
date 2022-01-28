@@ -52,7 +52,7 @@ function makeList(OriginalComponent: React.ComponentType<any | string>) {
       this.setState({
         loadingMore: true,
       });
-      this.props.onLoadData(2).then((res:any) => {
+      this.props.onLoadData(this.state.currentPage+1).then((res:any) => {
         this.setState({
           loadingMore: false,
           data: [...this.state.data, ...res.results],

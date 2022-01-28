@@ -19,6 +19,7 @@
     rgba(5.1%, 8.24%, 9.02%, 0.84) 100%
   );
   display: flex;
+  flex:1;
   justify-content: center;
 }
 
