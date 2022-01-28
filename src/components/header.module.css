@@ -6,10 +6,8 @@
     padding: 20px;
     z-index: 2;
     background: black;
-
     display: flex;
     align-items: center;
-    justify-content: center;
     font-size: 25px;
     color: white;
 
