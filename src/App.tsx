@@ -8,6 +8,7 @@ import {
 import Home from "./pages/home/home";
 import Layout from './components/layout'
 import ErrorPage from "./components/error-page";
+import Favorite from "./pages/favorite/favorite";
 import './App.css'
 
 
@@ -20,6 +21,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/error" element={<ErrorPage/>}/>
+            <Route path="/favorite" element={<Favorite/>}/>
             <Route path="/*" element={<Home/>}/>
           </Routes>
         </Layout>

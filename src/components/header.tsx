@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Badge from '@mui/material/Badge';
 import {AiOutlineLike} from 'react-icons/ai'
+import { useNavigate } from "react-router-dom";
 
 import { useTypedSelector } from "../hook/useTypeSelector"
 import classes from "./header.module.css";
@@ -11,11 +12,12 @@ const Header = () => {
   const favorite = useTypedSelector(({movies:{list}})=>{
     return list
   })
+  const navigate = useNavigate()
 
   const clickHome = () => {
     // window.scrollTo({top: 0, behavior: 'smooth'});
     // window.location.reload()
-    window.location.href = '/'
+    navigate('/')
   }
 
   useEffect(() => {
@@ -55,7 +57,7 @@ const Header = () => {
         <div className={classes.trigger_menu}>
           <span className={classes.logo} onClick={clickHome}>The Moive DB</span>
         </div>
-        <div className={classes.favoritebutton}>
+        <div className={classes.favoritebutton} onClick={()=>navigate('/favorite')}>
           <Badge badgeContent={favorite.length} color={"secondary"}>
             <AiOutlineLike/>
           </Badge>

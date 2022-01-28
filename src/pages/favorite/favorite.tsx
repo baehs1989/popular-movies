@@ -1,17 +1,14 @@
 import {useState} from 'react'
-
 import Details from '../details/details';
-import CardList from '../../components/card-list';
-import makeList from '../../components/hoc/makeList';
 import CustomDialog from '../../components/dialog';
-// import * as apiProvider from '../../apiProvider/api'
-import { getPopularMovies } from "../../test_api";
+import CardList from '../../components/card-list';
+import { useTypedSelector } from "../../hook/useTypeSelector"
 
-let HOCCardList = makeList(CardList)
-
-function Home() {
+const Favorite = () => {
     const [selectedMovie, setSelectedMovie] = useState<number|null>(null)
-
+    const favorite = useTypedSelector(({movies})=>{
+        return movies
+    })
     const onSelectMovie = (movieId:number) => {
         setSelectedMovie(movieId)
     }
@@ -24,9 +21,9 @@ function Home() {
                     <Details movieId={selectedMovie}/>
                 </CustomDialog>
             }
-            <HOCCardList onSelectItem={onSelectMovie} onLoadData={getPopularMovies}/>
+            <CardList onSelectItem={onSelectMovie} data={Object.values(favorite.data)}/>
         </div>
-     );
+    )
 }
 
-export default Home;
+export default Favorite

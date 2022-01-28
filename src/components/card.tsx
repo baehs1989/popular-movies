@@ -34,8 +34,10 @@ const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
         heartButton.current.addEventListener('mouseleave', mouseLeaveEvent)
         
         return ()=>{
-            heartButton.current.removeEventListener('mouseenter', mouseEnterEvent)
-            heartButton.current.removeEventListener('mouseleave', mouseLeaveEvent)
+            if (heartButton.current){
+                heartButton.current.removeEventListener('mouseenter', mouseEnterEvent)
+                heartButton.current.removeEventListener('mouseleave', mouseLeaveEvent)
+            }
         }
         
     },[])

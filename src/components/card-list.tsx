@@ -5,7 +5,7 @@ import makeList from './hoc/makeList'
 
 interface CardListProps {
     onSelectItem:(movieId:number)=>void,
-    onLoadData:(page:number)=>void,
+    onLoadData?:(page:number)=>void,
     data:Movie[]
 }
 
@@ -25,4 +25,4 @@ const CardList:React.FC<CardListProps> = ({onSelectItem, data}) => {
     )
 }
 
-export default makeList(CardList)
+export default CardList
