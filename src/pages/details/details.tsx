@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { BsDot } from "react-icons/bs";
 import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
+import clsx from 'clsx'
 
 // import { getMovieDetails } from "../../test_api";
 import * as apiProvider from '../../apiProvider/api'
@@ -10,7 +11,7 @@ import classes from "./details.module.css";
 import Overflow from "../../components/loader/overflow";
 import { useTypedSelector } from "../../hook/useTypeSelector"
 import {useActions} from '../../hook/useAction'
-
+import * as localStorage from '../../localstorage'
 
 const humanReadableRuntime = (runtime: number) => {
   let h = Math.floor(runtime / 60);
@@ -25,6 +26,8 @@ interface DetailsProps {
 const Details: React.FC<DetailsProps> = ({movieId}) => {
   const [movie, setMovie] = useState<MovieDetails>();
   const [loading, setLoading] = useState(true)
+  const [compared, setCompoared] = useState(false)
+  const [popularity, setPopularity] = useState(0)
 
   const favorite = useTypedSelector(({movies:{list}})=>{
     return list
@@ -35,6 +38,19 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
     setLoading(true)
     const initialCall = async () => {
       const movie = await apiProvider.getMovieDetails(movieId)
+      
+      let cacheData = await localStorage.getItem() as {
+        data:{[key:number]:MovieDetails},
+        list:[]
+      }
+
+      if (cacheData && 'data' in cacheData){
+        if (cacheData.data[movieId]){
+          setPopularity(cacheData.data[movieId].popularity)
+          setCompoared(true)
+        }
+      }
+
       setMovie(movie);
       setLoading(false)
     };
@@ -57,6 +73,8 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
       addMovie(JSON.parse(JSON.stringify(movie)))
     }
   }
+
+  let diff = (popularity - movie.popularity)
 
   return (
     <div
@@ -117,7 +135,18 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
             </div>
 
             <div className={classes.info}>
-              <div className={classes.popularity}>{movie?.popularity} pts</div>
+              <div className={classes.popularity}>
+                {movie?.popularity} 
+                {
+                  compared && (diff < 0 ?
+                    <span className={clsx(classes.point_difference, classes.minus)}>(-{Math.abs(diff)})</span>
+                    :
+                    <span className={clsx(classes.point_difference, classes.plus)}>(+{Math.abs(diff)})</span>
+                  )
+                  
+                }
+                pts
+              </div>
               <div className={classes.homepage}>
                 <a href={movie.homepage} target="_blank" rel="noreferrer">
                   <FaExternalLinkAlt />

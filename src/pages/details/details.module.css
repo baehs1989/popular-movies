@@ -110,6 +110,18 @@
   font-size: 35px;
 }
 
+.point_difference{
+  margin: 0px 5px;
+}
+
+.minus{
+  color:red
+}
+
+.plus{
+  color:green
+}
+
 @media screen and (max-width: 450px) {
   .inner_wrapper {
     width: 90%;
