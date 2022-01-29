@@ -11,6 +11,7 @@ Users allows to select and keep their favorite movies by clicking a heart icon o
 ## **Dependencies**
 - [axios](https://www.npmjs.com/package/axios) : easy-to-use , automatic transforms of JSON format , wide browser support
 - [localforage](https://www.npmjs.com/package/localforage) : easily manage localStorage and IndexedDB/WebSQL together, localStorage will be used in browsers without IndexedDB/WebSQL support
+- [clsx](https://www.npmjs.com/package/clsx) : provides easy and fast function to construct className strings
 - [react-error-boundary](https://www.npmjs.com/package/react-error-boundary) : easy to use the latest concept of "Error Boundaries"
 - [react-icons](https://www.npmjs.com/package/react-icons) : consists tons of icons from variety sources, which utilize ES6 imports
 - [react-loading](https://www.npmjs.com/package/react-loading) : provides neat-looking loaders which save a bit of time to build from scratch
@@ -18,7 +19,7 @@ Users allows to select and keep their favorite movies by clicking a heart icon o
 - [react-router](https://www.npmjs.com/package/react-router), [react-router-dom](https://www.npmjs.com/package/react-router-dom) : the most popular library for implementing routing with React apps
 - [material-ui](https://www.npmjs.com/package/@mui/material) : provides neat-looking reusuable components that is fully responsive with fine web accessibility, Dialog component had been used for the app
 
-## **Getting Started with Create React App**
+## **Getting Started with Create App**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
