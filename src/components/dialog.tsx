@@ -18,7 +18,7 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ children, open, onClose }) 
           <MdOutlineClose />
         </button>
       </DialogActions>
-      <DialogContent className={classes.dialogcontent}>{children}</DialogContent>
+      <DialogContent className={classes.dialogcontent} data-test="dialog-content">{children}</DialogContent>
     </Dialog>
   );
 };

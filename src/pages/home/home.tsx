@@ -17,7 +17,7 @@ function Home() {
     }
 
     return (
-        <div>
+        <div data-test="home">
             {
                 selectedMovie && 
                 <CustomDialog open={!isNaN(selectedMovie)} onClose={()=>setSelectedMovie(null)}>

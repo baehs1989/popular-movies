@@ -14,7 +14,7 @@ const Favorite = () => {
     }
 
     return (
-        <div>
+        <div data-test="favorite">
             {
                 selectedMovie && 
                 <CustomDialog open={!isNaN(selectedMovie)} onClose={()=>setSelectedMovie(null)}>

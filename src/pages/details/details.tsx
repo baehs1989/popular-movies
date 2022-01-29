@@ -43,7 +43,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
 
   if (loading || !movie) {
     return(
-      <div className={classes.placeholder}>
+      <div className={classes.placeholder} data-test="loading">
         <Overflow/>
       </div>
     )
@@ -64,6 +64,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
         backgroundImage: `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${movie.poster_path})`,
       }}
       className={classes.outer_wrapper}
+      data-test="details"
     >
       
       <div className={classes.backdrop}>

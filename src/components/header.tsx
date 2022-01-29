@@ -52,12 +52,12 @@ const Header = () => {
   });
 
   return (
-    <header ref={ref} className={classes.page_header}>
+    <header ref={ref} className={classes.page_header} data-test="header">
       <nav className={classes.nav}>
         <div className={classes.trigger_menu}>
-          <span className={classes.logo} onClick={clickHome}>The Moive DB</span>
+          <span className={classes.logo} onClick={clickHome} data-test="logo">The Moive DB</span>
         </div>
-        <div className={classes.favoritebutton} onClick={()=>navigate('/favorite')}>
+        <div className={classes.favoritebutton} onClick={()=>navigate('/favorite')} data-test="favorite-button">
           <Badge badgeContent={favorite.length} color={"secondary"}>
             <AiOutlineLike/>
           </Badge>

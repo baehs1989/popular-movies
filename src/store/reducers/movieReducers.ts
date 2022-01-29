@@ -1,11 +1,7 @@
 import {ActionType} from '../action-types'
 import { Movie } from '../../interfaces'
 import {Actions} from '../actions'
-import localForage from 'localforage';
-
-const movieCache = localForage.createInstance({
-  name: 'moviecache'
-});
+import * as localForage from '../../localstorage'
 
 interface MovieState{
     data:{
@@ -52,7 +48,7 @@ const reducer = (state=initialState, action:Actions):MovieState => {
             }
         
         case ActionType.SAVE_REDUX_STATE:
-            movieCache.setItem('file-cache', state)
+            localForage.setItem(state)
             return state
         
         case ActionType.RESTORE_REDUX_STATE:

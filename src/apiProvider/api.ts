@@ -27,7 +27,7 @@ export const getGenres = async () => {
 
 export const getPopularMovies = async (page = 1) => {
   let url = baseURL + `/3/movie/popular?page=${page}&api_key=${apiKey}`;
-  let res = await axios(url);
+  let res = await axios(url).then(res=>{return res})
 
   if (res.status !== 200) {
     window.location.href = "/error";

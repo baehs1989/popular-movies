@@ -33,10 +33,11 @@ const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
         heartButton.current.addEventListener('mouseenter', mouseEnterEvent)
         heartButton.current.addEventListener('mouseleave', mouseLeaveEvent)
         
+        let copy_heartButton = heartButton.current
         return ()=>{
-            if (heartButton.current){
-                heartButton.current.removeEventListener('mouseenter', mouseEnterEvent)
-                heartButton.current.removeEventListener('mouseleave', mouseLeaveEvent)
+            if (copy_heartButton){
+                copy_heartButton.removeEventListener('mouseenter', mouseEnterEvent)
+                copy_heartButton.removeEventListener('mouseleave', mouseLeaveEvent)
             }
         }
         
@@ -52,10 +53,10 @@ const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
     }
 
     return (
-        <div ref={card} className={classes.card} onClick={()=>onSelectMovie(data.id)}>
+        <div ref={card} className={classes.card} onClick={()=>onSelectMovie(data.id)} data-test='card-component'>
             <div className={classes.image}>
                 <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${data.poster_path}`} alt={data.title}/>
-                <div className={classes.detailIcon}>
+                <div className={classes.detailIcon} data-test="detail-icon">
                     <CgWebsite/>
                 </div>
             </div>
@@ -68,10 +69,10 @@ const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
                 }
             </div>
             <div className={classes.content}>
-                <div className={classes.title}><h2>{data.title}</h2></div>
-                <div className={classes.release_data}>{data.release_date}</div>
-                <div className={classes.genres}>{data.genre_ids.join(', ')}</div>
-                <div className={classes.popularity}>{data.popularity} pts</div>
+                <div className={classes.title} data-test="title"><h2>{data.title}</h2></div>
+                <div className={classes.release_data} data-test="release_date">{data.release_date}</div>
+                <div className={classes.genres} data-test="genres">{data.genre_ids.join(', ')}</div>
+                <div className={classes.popularity} data-test="popularity">{data.popularity} pts</div>
             </div>
         </div>
     )
