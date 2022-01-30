@@ -141,6 +141,9 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
                   compared && (diff < 0 ?
                     <span className={clsx(classes.point_difference, classes.minus)}>(-{Math.abs(diff)})</span>
                     :
+                    diff === 0 ?
+                    <span className={clsx(classes.point_difference)}>(-)</span>
+                    :
                     <span className={clsx(classes.point_difference, classes.plus)}>(+{Math.abs(diff)})</span>
                   )
                   
