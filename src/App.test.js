@@ -1,4 +1,4 @@
-import { storeFactory, findByTestAttr } from "../test/testUtils";
+import { storeFactory } from "../test/testUtils";
 import { mount } from "enzyme";
 import { Provider } from "react-redux";
 import App from "./App";

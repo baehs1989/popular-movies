@@ -3,7 +3,7 @@ import { ActionType } from "../action-types"
 import { Actions } from "../actions"
 import {saveReduxState} from '../action-creators'
 
-
+/* istanbul ignore file */
 export const localStorageMiddleware = ({dispatch}:{dispatch:Dispatch<Actions>}) => {
     return (next:(action:Actions)=>void)=>{
         return (action:Actions)=>{

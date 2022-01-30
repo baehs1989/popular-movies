@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export interface Movie {
     adult: boolean;
     backdrop_path:string;

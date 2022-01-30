@@ -20,6 +20,7 @@ const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
     })
     const {addMovie, deleteMovie} = useActions()
     
+    /* istanbul ignore next */
     useEffect(()=>{
         const mouseEnterEvent = () => {
             card.current.classList.add(classes.force_focusout)

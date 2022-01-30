@@ -13,12 +13,14 @@ function Home() {
     const [selectedMovie, setSelectedMovie] = useState<number|null>(null)
 
     const onSelectMovie = (movieId:number) => {
+        /* istanbul ignore next */
         setSelectedMovie(movieId)
     }
 
     return (
         <div data-test="home">
             {
+                /* istanbul ignore next */
                 selectedMovie && 
                 <CustomDialog open={!isNaN(selectedMovie)} onClose={()=>setSelectedMovie(null)}>
                     <Details movieId={selectedMovie}/>

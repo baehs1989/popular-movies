@@ -91,13 +91,6 @@ describe('Card: Event Action', ()=> {
         expect(MOVIE.id in redux_state.movies.data).toBe(false)
     })
     
-
-    test('onSelectMovie triggerd', () => {
-        const component = findByTestAttr(wrapper, 'card-component')
-        component.simulate('click')
-        expect(props.onSelectMovie).toHaveBeenCalledTimes(1)
-    })
-
     test('onSelectMovie triggerd', () => {
         const component = findByTestAttr(wrapper, 'card-component')
         component.simulate('click')

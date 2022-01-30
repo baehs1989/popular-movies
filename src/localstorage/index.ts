@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import localForage from 'localforage';
 
 const movieCache = localForage.createInstance({

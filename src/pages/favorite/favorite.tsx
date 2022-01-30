@@ -9,6 +9,8 @@ const Favorite = () => {
     const favorite = useTypedSelector(({movies})=>{
         return movies
     })
+
+    /* istanbul ignore next */
     const onSelectMovie = (movieId:number) => {
         setSelectedMovie(movieId)
     }
@@ -16,6 +18,7 @@ const Favorite = () => {
     return (
         <div data-test="favorite">
             {
+                /* istanbul ignore next */
                 selectedMovie && 
                 <CustomDialog open={!isNaN(selectedMovie)} onClose={()=>setSelectedMovie(null)}>
                     <Details movieId={selectedMovie}/>

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const page1 = {
   page: 1,
   results: [

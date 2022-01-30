@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ActionType } from "../action-types";
 import {
   AddMovieAction,

@@ -20,6 +20,8 @@ const Header = () => {
     navigate('/')
   }
 
+  // can be done in functinal testing
+  /* istanbul ignore next */
   useEffect(() => {
     let lastScroll = 0;
     let scrollEvent = () => {

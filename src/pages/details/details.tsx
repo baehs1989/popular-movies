@@ -74,7 +74,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
     }
   }
 
-  let diff = (popularity - movie.popularity)
+  let diff = (movie.popularity - popularity)
 
   return (
     <div
@@ -86,7 +86,7 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
     >
       
       <div className={classes.backdrop}>
-      <div className={classes.favorite} onClick={onClickLikeButton}>
+      <div className={classes.favorite} onClick={onClickLikeButton} data-test="heart_icon">
                 {
                     favorite.includes(movieId)?
                     <AiFillHeart/>
@@ -135,16 +135,16 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
             </div>
 
             <div className={classes.info}>
-              <div className={classes.popularity}>
+              <div className={classes.popularity} data-test="popularity">
                 {movie?.popularity} 
                 {
                   compared && (diff < 0 ?
-                    <span className={clsx(classes.point_difference, classes.minus)}>(-{Math.abs(diff)})</span>
+                    <span className={clsx(classes.point_difference, classes.minus)} data-test="difference">(-{Math.abs(diff)})</span>
                     :
                     diff === 0 ?
-                    <span className={clsx(classes.point_difference)}>(-)</span>
+                    <span className={clsx(classes.point_difference)} data-test="difference">(-)</span>
                     :
-                    <span className={clsx(classes.point_difference, classes.plus)}>(+{Math.abs(diff)})</span>
+                    <span className={clsx(classes.point_difference, classes.plus)} data-test="difference">(+{Math.abs(diff)})</span>
                   )
                   
                 }
