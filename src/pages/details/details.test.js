@@ -137,7 +137,7 @@ describe("Rendering Detail Component", () => {
       });
       wrapper.update();
       expect(
-        findByTestAttr(wrapper, "popularity").text().endsWith(`(-23)pts`)
+        findByTestAttr(wrapper, "popularity").text().endsWith(`(-23.00)pts`)
       ).toBe(true);
     });
 
@@ -160,7 +160,7 @@ describe("Rendering Detail Component", () => {
       });
       wrapper.update();
       expect(
-        findByTestAttr(wrapper, "popularity").text().endsWith(`(+24)pts`)
+        findByTestAttr(wrapper, "popularity").text().endsWith(`(+24.00)pts`)
       ).toBe(true);
     });
   });

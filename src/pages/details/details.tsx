@@ -139,12 +139,12 @@ const Details: React.FC<DetailsProps> = ({movieId}) => {
                 {movie?.popularity} 
                 {
                   compared && (diff < 0 ?
-                    <span className={clsx(classes.point_difference, classes.minus)} data-test="difference">(-{Math.abs(diff)})</span>
+                    <span className={clsx(classes.point_difference, classes.minus)} data-test="difference">(-{Math.abs(diff).toFixed(2)})</span>
                     :
                     diff === 0 ?
                     <span className={clsx(classes.point_difference)} data-test="difference">(-)</span>
                     :
-                    <span className={clsx(classes.point_difference, classes.plus)} data-test="difference">(+{Math.abs(diff)})</span>
+                    <span className={clsx(classes.point_difference, classes.plus)} data-test="difference">(+{Math.abs(diff).toFixed(2)})</span>
                   )
                   
                 }
