@@ -53,7 +53,7 @@ const reducer = (state=initialState, action:Actions):MovieState => {
             return state
         
         case ActionType.RESTORE_REDUX_STATE:
-            if ('data' in action.payload && 'list' in action.payload){
+            if (action.payload && 'data' in action.payload && 'list' in action.payload){
                 return {
                     ...action.payload
                 }
