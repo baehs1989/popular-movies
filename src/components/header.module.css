@@ -42,6 +42,14 @@
     cursor:pointer
 }
 
+.username {
+    position:fixed;
+    top:0;
+    right: 0;
+    font-size: 12px;
+    padding: 5px;
+}
+
 @media screen and (max-width: 700px){
     .nav{
         width: 100%

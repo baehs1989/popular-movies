@@ -13,7 +13,7 @@ import './App.css'
 import {useActions} from './hook/useAction'
 import {Movie} from './interfaces'
 import * as localStorage from './localstorage'
-
+import {UserContextProvider} from './context/UserContext'
 
 function App() {
   const {restoreReduxState} = useActions()
@@ -39,13 +39,15 @@ function App() {
       <ErrorBoundary
         FallbackComponent={ErrorPage}
       >
-        <Layout>
-          <Routes>
-            <Route path="/error" element={<ErrorPage/>}/>
-            <Route path="/favorite" element={<Favorite/>}/>
-            <Route path="/*" element={<Home/>}/>
-          </Routes>
-        </Layout>
+        <UserContextProvider>
+          <Layout>
+            <Routes>
+              <Route path="/error" element={<ErrorPage/>}/>
+              <Route path="/favorite" element={<Favorite/>}/>
+              <Route path="/*" element={<Home/>}/>
+            </Routes>
+          </Layout>
+        </UserContextProvider>
       </ErrorBoundary>
     </div>
   );

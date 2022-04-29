@@ -1,6 +1,11 @@
+import { useContext } from "react"
+import User from "../pages/user/user"
+
 import Header from "./header"
+import { UserCtx, } from "../context/UserContext"
 
 const Layout:React.FC = ({children}) => {
+    const userCtx = useContext(UserCtx)
     return (
         <>
             <Header/>
@@ -8,7 +13,12 @@ const Layout:React.FC = ({children}) => {
 
             </div>
             <main>
-                {children}
+                {
+                    userCtx && !userCtx.username ?
+                    <User/>
+                    :
+                    children
+                }
             </main>
         </>
     )
