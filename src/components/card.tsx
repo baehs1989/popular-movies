@@ -12,7 +12,8 @@ interface CardProps {
     onSelectMovie:(movieId:number)=>void
 }
 
-const Card:React.FC<CardProps> = ({data, onSelectMovie}) => {
+const Card:React.FC<CardProps> = (props:CardProps) => {
+    let {data, onSelectMovie} = props
     const heartButton = useRef() as React.MutableRefObject<HTMLInputElement>;
     const card = useRef() as React.MutableRefObject<HTMLInputElement>
     const favorite = useTypedSelector(({movies:{list}})=>{
